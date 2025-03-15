@@ -1,0 +1,17 @@
+.button {
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  min-width: 98px;
+  max-width: 325px;
+}
+.button_answer {
+
+  max-width: 200px;
+  text-align: center;
+  padding: 10px 20px;
+  background: white;
+  cursor: pointer;
+}

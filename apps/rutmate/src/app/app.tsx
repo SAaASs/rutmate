@@ -1,12 +1,18 @@
-// Uncomment this line to use CSS modules
-// import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
-
+import GreetingsPage from '../greetings-page/greetingsPage';
+import { BrowserRouter, Route, Routes } from 'react-router';
+import SignUp from '../sign-up/signUp';
+import QuestionPage from '../question-page/questionPage';
+import Profile from '../profile/profile';
 export function App() {
   return (
-    <div>
-      <NxWelcome title="rutmate" />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<GreetingsPage/>} />
+        <Route path="/sign-up" element={<SignUp/>} />
+        <Route path="/questions" element={<QuestionPage/>} />
+        <Route path="/id" element={<Profile/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

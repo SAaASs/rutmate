@@ -1,0 +1,85 @@
+/* UserProfile.css */
+.profileContainer {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.imageSection {
+  position: relative;
+}
+
+.profileImage {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.timeDisplay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.userInfo {
+  background: linear-gradient(to top, #4c1d95, transparent);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.userName {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.userBadge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: white;
+  color: #333;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.aboutSection {
+  padding: 20px;
+  background: white;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.aboutText {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.preferences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.preferenceItem {
+  padding: 6px 12px;
+  background: #d8b4fe;
+  color: #4c1d95;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: bold;
+}

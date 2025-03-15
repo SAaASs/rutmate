@@ -1,0 +1,16 @@
+.textInput {
+  width: 325px;
+  height: 56px;
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  outline: none;
+  border: none;
+}
+
+.textInput::placeholder {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 100%;
+  text-align: center;
+}

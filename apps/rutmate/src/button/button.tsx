@@ -8,12 +8,13 @@ interface ButtonProps {
   width?: number;
   height?: number;
   backgroundColor?: string;
-  onClick?: () => void;
+  onClick?: (e?: React.MouseEvent) => void;
   isOption?: boolean;
+  borderColor?: string;
 }
-export function Button({children, marginBottom, marginTop, width, height, backgroundColor= '#ED4D00', onClick, isOption}: ButtonProps): JSX.Element {
+export function Button({children, marginBottom, marginTop, width, height, backgroundColor= '#ED4D00', onClick, isOption, borderColor = backgroundColor}: ButtonProps): JSX.Element {
   return (
-    <button onClick={onClick} style={{backgroundColor: backgroundColor, width: width+'px', height: height+'px', marginBottom: marginBottom+'px', marginTop: marginTop+'px'}} className={`${s.button} ${isOption ? s.button_answer : ""}`}>
+    <button onClick={onClick} style={{borderColor: borderColor, backgroundColor: backgroundColor, width: width+'px', height: height+'px', marginBottom: marginBottom+'px', marginTop: marginTop+'px'}} className={`${s.button} ${isOption ? s.button_answer : ""}`}>
       {children}
     </button>
   );

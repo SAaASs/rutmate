@@ -15,3 +15,14 @@
   background: white;
   cursor: pointer;
 }
+.button_icon {
+  background: transparent;
+  border: 1px solid #FFFFFF90;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 0;
+  padding-inline: 0;
+  padding: 5px;
+}

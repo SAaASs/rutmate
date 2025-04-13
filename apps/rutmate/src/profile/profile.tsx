@@ -35,7 +35,7 @@ const UserProfile = () => {
         <Typo marginTop={280} weight={700} size={32} color={'#FFFFFF'}>{otherUser.name} {otherUser.lastName}</Typo>
         <Tag onClick={()=>{
           fetch(`https://localhost:3001/checkchat?firstUser=${otherUser._id}&secondUser=${user.currentUser._id}`, {credentials: 'include'}).then((r) => r.json()).then((data) => {navigate(`/chat/${data}`)})
-        }} > <Typo marginBottom={5} marginTop={5} marginLeft={5} marginRight={5} weight={500} size={16} color={'#2000B1'}>Сосед</Typo> </Tag>
+        }} > <Typo marginBottom={5} marginTop={5} marginLeft={5} marginRight={5} weight={500} size={16} color={'#2000B1'}>Написать</Typo> </Tag>
         <DraggableContainer>
           <div className={s.wrap}>
             <Typo weight={400} size={16} color={"#22172A80"}>О себе</Typo>

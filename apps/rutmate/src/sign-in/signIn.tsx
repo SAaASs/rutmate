@@ -44,6 +44,7 @@ export function SignIn() {
                 .then((r) => r.json())
                 .then((data) => {
                   user.setCurrentUser(data);
+                  navigate('/me')
                 });
             } else {
               console.log(response.json());

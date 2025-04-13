@@ -104,7 +104,7 @@ export function Chat() {
       <VerticalContainer>
         <div className={s.chat__wrap}>
           <div className={s.chat__header}>
-            <Button backgroundColor={'transparent'} standart={false} iconOnly><img
+            <Button onClick={()=>{navigate('/chats')}} backgroundColor={'transparent'} standart={false} iconOnly><img
               src={'../../public/images/weui_arrow-filled.svg'} /></Button>
             <CircleAvatar width={71} height={71} setIsPopupOpen={setIsPopupOpen}
                           src={`https://localhost:3001/image/${chatInfo.pic}`} />

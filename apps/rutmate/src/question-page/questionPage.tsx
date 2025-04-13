@@ -65,7 +65,6 @@ export function QuestionPage() {
         {switcher && <><img src={'../../public/images/logo.svg'} /><Question question={questions[currentQuestion]} />
           <Button onClick={()=>{
             if(questions[currentQuestion].name=='smoke') {
-              console.log(user.currentUser)
               fetch("https://localhost:3001/register", {
                 method: "POST",
                 headers: {

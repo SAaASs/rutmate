@@ -36,10 +36,14 @@ export function DraggableContainer({ children }: { children: React.ReactNode }) 
       style={{
         position: "relative",
         top: `${position.y}px`,
-        cursor: "grab",
       }}
-      onMouseDown={handleMouseDown}
+
     >
+      <div className={s.dragCont__buttonWrap}>
+        <div onMouseDown={handleMouseDown} className={s.dragCont__button}>
+
+        </div>
+      </div>
       {children}
     </div>
   );

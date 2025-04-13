@@ -4,6 +4,7 @@ import Button from '../button/button';
 import { use, useEffect } from 'react';
 import { UserContext } from '../app/app';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router';
 interface Question {
   question: string;
   options: string[];
@@ -17,6 +18,7 @@ interface QuestionProps {
 export function Question({ question }: QuestionProps) {
   useEffect(()=>{console.log(11)},[question])
   const user = useContext(UserContext);
+  const navigate = useNavigate();
   return (
     <div className={s.question}>
       <Typo marginBottom={75} weight={600} size={24} color={'#000000'}>{question.question}</Typo>

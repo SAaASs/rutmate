@@ -1,4 +1,4 @@
-import s from './signUp.module.scss';
+import s from './signIn.module.scss';
 import { useState } from 'react';
 import VerticalContainer from '../vertical-container/verticalContainer';
 import Typo from '../typo/typo';
@@ -8,12 +8,10 @@ import Substrate from '../substrate/substrate';
 import { UserContext } from '../app/app';
 import { useContext } from 'react';
 import { useNavigate } from "react-router";
-export function SignUp() {
+export function SignIn() {
   const navigate = useNavigate();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [name, setName] = useState('');
   const user = useContext(UserContext);
   return (
     <Substrate>
@@ -22,21 +20,40 @@ export function SignUp() {
         <Typo marginBottom={50} color={'#000000'} size={14} weight={400}>Введите логин и пароль от
           личного кабинета РУТ МИИТ</Typo>
         <Input store={[login, setLogin]} marginBottom={20} placeholder={'Введите логин'}></Input>
-        <Input store={[password, setPassword]} marginBottom={20} placeholder={'Введите пароль'}></Input>
-        <Input store={[name, setName]} marginBottom={20} placeholder={'Введите имя'}></Input>
-        <Input store={[lastName, setLastName]} marginBottom={40} placeholder={'Введите фамилию'}></Input>
+        <Input store={[password, setPassword]} marginBottom={40} placeholder={'Введите пароль'}></Input>
         <Button
           width={325}
           height={58}
           onClick={()=>{
+          fetch("https://localhost:3001/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            credentials: "include",
+            body: JSON.stringify({
+              email: login,
+              password: password,
+            }),
+          }).then((response: Response) => {
+            if (response.ok) {
+              fetch("https://localhost:3001/me", {
+                method: "GET",
+                credentials: "include", // и тут тоже!
+              })
+                .then((r) => r.json())
+                .then((data) => {
+                  user.setCurrentUser(data);
+                });
+            } else {
+              console.log(response.json());
+            }
+          }).catch((er)=>{console.log('11111',er)})
           user.setCurrentUser((prevState) => ({
             ...prevState,
-            name: name,
-            lastName: lastName,
             email: login,
             password: password,
           }));
-          navigate('/questions');
         }}><Typo weight={600} size={18} color={'#FFFFFF'}>Продолжить</Typo></Button>
         <Typo marginTop={250} color={'#000000'} size={14} weight={400}>Уже есть аккаунт? Войти</Typo>
       </VerticalContainer>
@@ -44,4 +61,4 @@ export function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignIn;

@@ -1,0 +1,42 @@
+.myProfile__headImgWrap {
+  border-radius: 50%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.myProfile__headImg {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.myProfile__headImgWrap {
+  position: relative;
+}
+
+.myProfile__headImg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.myProfile__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-image: url("../../public/images/file.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50px 50px; /* можно подогнать под нужный размер */
+}
+
+.myProfile__headImgWrap:hover {
+  cursor: pointer;
+}
+
+.myProfile__headImgWrap:hover .myProfile__overlay {
+  opacity: 1;
+}

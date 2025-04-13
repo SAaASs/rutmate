@@ -1,8 +1,13 @@
 import s from './tag.module.scss';
+import React from 'react';
 
-export function Tag({children}: {children: React.ReactNode}) {
+interface TagProps {
+  children: React.ReactNode;
+  onClick?: () => void;
+}
+export function Tag({children, onClick}: TagProps) {
   return (
-    <div className={s.tag}>
+    <div onClick={onClick} className={s.tag}>
       {children}
     </div>
   );

@@ -1,0 +1,40 @@
+.chat__header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #421EB7;
+  width: 100%;
+  margin-top: 20px;
+}
+.chat__message {
+  border-radius: 50px;
+  background-color: #FFFFFF;
+  display: flex;
+  margin-left: 10px;
+}
+.chat__message_my {
+  background-color: #8F80D82E;
+}
+.chat__messageList {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.chat__messageWrap {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.chat__wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.chat__sender {
+  display: flex;
+  justify-content: space-between;
+}

@@ -4,4 +4,19 @@
   border-radius: 50px;
   background-color: #FFFFFF;
   position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+.dragCont__buttonWrap {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.dragCont__button {
+  width: 50px;
+  border-radius: 5px;
+  height: 5px;
+  background-color: #333333;
+  cursor: grab;
 }

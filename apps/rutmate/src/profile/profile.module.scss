@@ -1,6 +1,8 @@
 .profile__pic {
   position: absolute;
   z-index: -1;
+  width: 375px;
+  height: 100%;
 }
 body {
   margin: 0;
@@ -13,4 +15,16 @@ body {
 }
 .test {
   background-color: #FFFFFF;
+}
+.profile__tags {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.wrap {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }

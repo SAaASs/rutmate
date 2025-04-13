@@ -6,7 +6,8 @@ import VerticalContainer from '../vertical-container/verticalContainer';
 import Button from '../button/button';
 import Question from '../question/question';
 import { UserContext } from '../app/app';
-const questions = [
+import { useNavigate } from 'react-router';
+export const questions = [
   {
     question: "Есть ли у вас уже пара, с кем вы хотите снимать жилье?",
     options: ["Да", "Нет"],
@@ -52,6 +53,7 @@ export function QuestionPage() {
   const [switcher, setSwitcher] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const user = useContext(UserContext);
+  const navigate = useNavigate();
   return (
     <Substrate>
       <VerticalContainer>
@@ -61,7 +63,28 @@ export function QuestionPage() {
         <Button onClick={()=>{setSwitcher(true)}}><Typo weight={600} size={18} color={'#FFFFFF'}>Продолжить</Typo></Button>
       </div>}
         {switcher && <><img src={'../../public/images/logo.svg'} /><Question question={questions[currentQuestion]} />
-          <Button onClick={()=>{setCurrentQuestion(currentQuestion+1)}} marginTop={50} height={56} width={325}>
+          <Button onClick={()=>{
+            if(questions[currentQuestion].name=='smoke') {
+              console.log(user.currentUser)
+              fetch("https://localhost:3001/register", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user.currentUser),
+              })
+                .then(response => response.json())
+                .then((data) => {
+                  navigate('/sign-in')
+                  console.log(data);
+                })
+                .catch(error => console.error("Error:", error));
+            }
+            else {
+              setCurrentQuestion(currentQuestion+1)
+            }
+
+          }} marginTop={50} height={56} width={325}>
             <Typo weight={600} size={18} color={'#FFFFFF'}>
               Следующий вопрос
             </Typo>

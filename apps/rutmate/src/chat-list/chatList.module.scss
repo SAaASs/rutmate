@@ -1,0 +1,34 @@
+.chat {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #2000B130;
+  padding-bottom: 15px;
+
+}
+.chatList{
+  margin-top: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.chat__textWrap {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  max-width: 200px;
+  height: 100%;
+}
+.chat__statusWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 16px;
+}
+.chat__indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ED4D00;
+}

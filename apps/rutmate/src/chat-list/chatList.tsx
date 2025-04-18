@@ -4,7 +4,7 @@ import VerticalContainer from '../vertical-container/verticalContainer';
 import DraggableContainer from '../draggable-container/draggableContainer';
 import Typo from '../typo/typo';
 import { useEffect, useState } from 'react';
-import CircleAvatar from '../circle-avatar/circleAvatar';
+import NavBar from '../nav-bar/navBar';
 import UploadPopup from '../upload-popup/uploadPopup';
 import ChatElement from '../chat-element/chatElement';
 export function ChatList() {
@@ -34,6 +34,7 @@ export function ChatList() {
           onClose={() => setIsPopupOpen(false)}
           uploadAdress={'https://localhost:3001/upload'}
         />
+        <NavBar/>
       </VerticalContainer>
     </Substrate>
   );

@@ -21,9 +21,9 @@ export function Question({ question }: QuestionProps) {
   const navigate = useNavigate();
   return (
     <div className={s.question}>
-      <Typo marginBottom={75} weight={600} size={24} color={'#000000'}>{question.question}</Typo>
+      <Typo marginBottom={75} weight={600} size={24} color={'#000000'}>{question.question?question.question:''}</Typo>
       <div className={s.question__options}>
-        {question.options.map((option) => {return(<Button onClick={()=>{
+        {question.options.map((option,index) => {return(<Button onClick={()=>{
           user.setCurrentUser((prevState) => ({
             ...prevState,
             questions: {

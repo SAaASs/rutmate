@@ -9,6 +9,7 @@ import MyProfile from '../my-profile/myProfile';
 import ChatList from '../chat-list/chatList';
 import { createContext, useEffect, useState } from 'react';
 import Chat from '../chat/chat';
+import Settings from '../settings/Settings';
 export const UserContext = createContext({});
 
 
@@ -29,6 +30,7 @@ export function App() {
     <UserContext.Provider value={{ currentUser: currentUser, setCurrentUser: setCurrentUser }}>
       <BrowserRouter>
         <Routes>
+          <Route path="/settings" element={<Settings/>} />
           <Route path="/" element={<GreetingsPage/>} />
           <Route path="/chats" element={<ChatList/>} />
           <Route path="/chat/:id" element={<Chat/>} />

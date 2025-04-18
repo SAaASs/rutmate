@@ -11,7 +11,6 @@ interface ChatElementProps {
 }
 export function ChatElement({chat, setIsPopupOpen}: ChatElementProps) {
   const  user = useContext(UserContext);
-  console.log('user in chatElement',user)
   const navigate = useNavigate();
   const [isDataReady, setIsDataReady] = useState(false);
   const [chatInfo, setChatInfo] = useState(
@@ -26,7 +25,7 @@ export function ChatElement({chat, setIsPopupOpen}: ChatElementProps) {
       {
         method: 'GET',
         credentials: 'include',
-      }).then((res)=>res.json()).then((data)=>{console.log(data); setChatInfo((prevState) => ({
+      }).then((res)=>res.json()).then((data)=>{setChatInfo((prevState) => ({
       ...prevState,
       message: data,
     }))})
@@ -47,8 +46,6 @@ export function ChatElement({chat, setIsPopupOpen}: ChatElementProps) {
             pic: data.avatar,
           }))
         }).then(()=> {
-          console.log('chatInfo',chatInfo)
-          console.log('chat',chat)
         setIsDataReady(true);
       })
     }
@@ -64,7 +61,7 @@ export function ChatElement({chat, setIsPopupOpen}: ChatElementProps) {
         </div>
         <div className={s.chatElement__statusWrap}>
           <div className={s.chatElement__indicator}></div>
-          {chatInfo.message.createdAt&&<Typo weight={400} size={14} color={'#00000080'}>{chatInfo.message.createdAt}</Typo>}
+          {chatInfo.message.createdAt&&<Typo weight={400} size={14} color={'#00000080'}>{chatInfo.message.time}</Typo>}
         </div>
       </div>
     </div>

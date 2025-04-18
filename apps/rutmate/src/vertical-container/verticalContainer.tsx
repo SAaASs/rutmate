@@ -1,8 +1,12 @@
 import s from './verticalContainer.module.scss';
-
-export function VerticalContainer({children}: {children: React.ReactNode}) {
+import Question from '../question/question';
+interface ContainerProps {
+  overflow?: string;
+  children: React.ReactNode;
+}
+export function VerticalContainer({children, overflow='hidden'}: ContainerProps) {
   return (
-    <div className={s.container}>
+    <div style={{overflow: overflow}} className={s.container}>
       {children}
     </div>
   );

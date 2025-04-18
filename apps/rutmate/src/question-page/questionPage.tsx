@@ -6,11 +6,12 @@ import VerticalContainer from '../vertical-container/verticalContainer';
 import Button from '../button/button';
 import Question from '../question/question';
 import { UserContext } from '../app/app';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
+import { useLocation } from 'react-router';
 export const questions = [
   {
     question: "Есть ли у вас уже пара, с кем вы хотите снимать жилье?",
-    options: ["Да", "Нет"],
+    options: ["Нет", "Да"],
     name: 'pair'
   },
   {
@@ -25,7 +26,7 @@ export const questions = [
   },
   {
     question: "Есть ли у вас уже вариант для съема жилья?",
-    options: ["Да", "Нет"],
+    options: ["Нет", "Да"],
     name: 'possPlace'
   },
   {
@@ -35,21 +36,24 @@ export const questions = [
   },
   {
     question: "Есть ли у вас домашние животные, с которыми планируете жить?",
-    options: ["Нет, но к животным отношусь нейтрально", "Да", "Нет, отношусь негативно"],
+    options: ["Нет, отношусь негативно", "Нет, но к животным отношусь нейтрально", "Да"],
     name: 'pets'
   },
   {
     question: "Употребляете ли вы алкоголь?",
-    options: ["Нет, но отношусь к алкоголю нейтрально", "Да", "Нет, отношусь негативно"],
+    options: ["Нет, отношусь негативно","Нет, но отношусь к алкоголю нейтрально", "Да"],
     name: 'alco'
   },
   {
-    question: "Курите ли вы алкоголь?",
-    options: ["Нет, но отношусь к курению нейтрально", "Да", "Нет, отношусь негативно"],
+    question: "Курите ли вы?",
+    options: [ "Нет, отношусь негативно","Нет, но отношусь к курению нейтрально", "Да"],
     name: 'smoke'
   }
 ];
 export function QuestionPage() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const mode = queryParams.get('mode'); // будет 'reg' если ?mode=reg
   const [switcher, setSwitcher] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const user = useContext(UserContext);
@@ -64,7 +68,8 @@ export function QuestionPage() {
       </div>}
         {switcher && <><img src={'../../public/images/logo.svg'} /><Question question={questions[currentQuestion]} />
           <Button onClick={()=>{
-            if(questions[currentQuestion].name=='smoke') {
+            if(questions[currentQuestion].name=='smoke'&&mode=='reg') {
+              console.log('creating the user now')
               fetch("https://localhost:3001/register", {
                 method: "POST",
                 headers: {
@@ -76,6 +81,22 @@ export function QuestionPage() {
                 .then((data) => {
                   navigate('/sign-in')
                   console.log(data);
+                })
+                .catch(error => console.error("Error:", error));
+            }
+            if(questions[currentQuestion].name=='smoke'&&mode=='edit') {
+              console.log('editing the user now')
+              fetch("https://localhost:3001/editquestions", {
+                method: "POST",
+                credentials: 'include',
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify({questions: user.currentUser.questions}),
+              })
+                .then(response => response.json())
+                .then((data) => {
+                  navigate('/me')
                 })
                 .catch(error => console.error("Error:", error));
             }

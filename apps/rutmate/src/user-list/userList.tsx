@@ -3,6 +3,7 @@ import VerticalContainer from '../vertical-container/verticalContainer';
 import Typo from '../typo/typo';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import NavBar from '../nav-bar/navBar';
 export function UserList() {
   const navigate = useNavigate();
   const [userList, setUserList] = useState()
@@ -34,6 +35,7 @@ export function UserList() {
               );
             })}
           </div>
+        <NavBar/>
       </VerticalContainer>
   );
 }

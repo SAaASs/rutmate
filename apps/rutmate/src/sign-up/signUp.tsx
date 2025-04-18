@@ -36,9 +36,9 @@ export function SignUp() {
             email: login,
             password: password,
           }));
-          navigate('/questions');
+          navigate('/questions?mode=reg');
         }}><Typo weight={600} size={18} color={'#FFFFFF'}>Продолжить</Typo></Button>
-        <Typo marginTop={250} color={'#000000'} size={14} weight={400}>Уже есть аккаунт? Войти</Typo>
+        <Typo marginTop={250} color={'#000000'} size={14} weight={400}>Уже есть аккаунт? <span style={{cursor: 'pointer', color: '#ED4D00'}} onClick={()=>{navigate('/sign-in')}} >Войти</span> </Typo>
       </VerticalContainer>
     </Substrate>
   );

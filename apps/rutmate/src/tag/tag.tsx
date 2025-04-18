@@ -4,10 +4,11 @@ import React from 'react';
 interface TagProps {
   children: React.ReactNode;
   onClick?: () => void;
+  isClickable?: boolean;
 }
-export function Tag({children, onClick}: TagProps) {
+export function Tag({children, onClick, isClickable=false}: TagProps) {
   return (
-    <div onClick={onClick} className={s.tag}>
+    <div style={isClickable?{cursor: 'pointer'}:{}} onClick={onClick} className={s.tag}>
       {children}
     </div>
   );

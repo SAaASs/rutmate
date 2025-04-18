@@ -8,13 +8,14 @@ import { questions } from '../question-page/questionPage';
 import Tag from '../tag/tag';
 import UploadPopup from '../upload-popup/uploadPopup';
 import CircleAvatar from '../circle-avatar/circleAvatar';
+import NavBar from '../nav-bar/navBar';
 export function MyProfile() {
   const user = useContext(UserContext);
   console.log('getting user in myProfile ', user)
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   return (
     <Substrate>
-      <VerticalContainer>
+      <VerticalContainer overflow={'scroll'}>
         <Typo marginBottom={20} marginTop={25} weight={700} size={24} color={"#000000"}>Мой профиль</Typo>
         <div className={s.myProfile}>
           <div className={s.myProfile__head}>
@@ -40,6 +41,7 @@ export function MyProfile() {
           onClose={() => setIsPopupOpen(false)}
           uploadAdress={'https://localhost:3001/upload'}
         />
+        <NavBar/>
       </VerticalContainer>
 
     </Substrate>

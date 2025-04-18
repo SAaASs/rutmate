@@ -32,15 +32,15 @@ const UserProfile = () => {
         <div className={s.backButtonWrap}>
           <Button marginTop={20}  borderColor={'#FFFFFF90'} backgroundColor={'transparent'} standart={false} iconOnly><img src="../../public/images/Icon.svg"/></Button>
         </div>
-        <Typo marginTop={280} weight={700} size={32} color={'#FFFFFF'}>{otherUser.name} {otherUser.lastName}</Typo>
-        <Tag onClick={()=>{
+        <div className={s.profile__name}>{otherUser.name} {otherUser.lastName}</div>
+        <Tag isClickable onClick={()=>{
           fetch(`https://localhost:3001/checkchat?firstUser=${otherUser._id}&secondUser=${user.currentUser._id}`, {credentials: 'include'}).then((r) => r.json()).then((data) => {navigate(`/chat/${data}`)})
         }} > <Typo marginBottom={5} marginTop={5} marginLeft={5} marginRight={5} weight={500} size={16} color={'#2000B1'}>Написать</Typo> </Tag>
         <DraggableContainer>
           <div className={s.wrap}>
             <Typo weight={400} size={16} color={"#22172A80"}>О себе</Typo>
             <Typo marginBottom={40} weight={500} size={16} color={"#22172A80"}>Учусь в ИМТК на 3 курсе</Typo>
-            <Typo weight={400} size={16} color={"#22172A80"}>Предпочтения</Typo>
+            <Typo marginBottom={15} weight={400} size={16} color={"#22172A80"}>Предпочтения</Typo>
             <div className={s.profile__tags}>
               {Object.keys(otherUser.questions).map(key => (
                 <Tag key={key}>

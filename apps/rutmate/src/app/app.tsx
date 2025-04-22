@@ -22,8 +22,10 @@ export function App() {
     })
       .then((r) => r.json())
       .then((data) => {
+        if (data.name) {
+          setCurrentUser(data);
+        }
         console.log('getting user in app', data);
-        setCurrentUser(data);
       });
   },[])
   return (

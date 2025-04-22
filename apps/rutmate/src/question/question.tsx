@@ -19,11 +19,14 @@ export function Question({ question }: QuestionProps) {
   useEffect(()=>{console.log(11)},[question])
   const user = useContext(UserContext);
   const navigate = useNavigate();
+  if (question==undefined || question == null) {
+    return null
+  }
   return (
     <div className={s.question}>
       <Typo marginBottom={75} weight={600} size={24} color={'#000000'}>{question.question?question.question:''}</Typo>
       <div className={s.question__options}>
-        {question.options.map((option,index) => {return(<Button onClick={()=>{
+        {question.options.map((option,index) => {return(<Button key={index} onClick={()=>{
           user.setCurrentUser((prevState) => ({
             ...prevState,
             questions: {

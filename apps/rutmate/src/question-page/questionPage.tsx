@@ -57,6 +57,7 @@ export function QuestionPage() {
   const [switcher, setSwitcher] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const user = useContext(UserContext);
+  console.log(user);
   const navigate = useNavigate();
   return (
     <Substrate>
@@ -69,7 +70,6 @@ export function QuestionPage() {
         {switcher && <><img src={'../../public/images/logo.svg'} /><Question question={questions[currentQuestion]} />
           <Button onClick={()=>{
             if(questions[currentQuestion].name=='smoke'&&mode=='reg') {
-              console.log('creating the user now')
               fetch("https://localhost:3001/register", {
                 method: "POST",
                 headers: {
@@ -85,7 +85,6 @@ export function QuestionPage() {
                 .catch(error => console.error("Error:", error));
             }
             if(questions[currentQuestion].name=='smoke'&&mode=='edit') {
-              console.log('editing the user now')
               fetch("https://localhost:3001/editquestions", {
                 method: "POST",
                 credentials: 'include',

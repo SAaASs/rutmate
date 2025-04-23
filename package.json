@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:frontend": "nx serve rutmate"
+    "start:frontend": "nx serve rutmate --host=0.0.0.0"
   },
   "private": true,
   "dependencies": {

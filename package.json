@@ -2,7 +2,9 @@
   "name": "@rutmate/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:frontend": "nx serve rutmate"
+  },
   "private": true,
   "dependencies": {
     "multer": "^1.4.5-lts.2",

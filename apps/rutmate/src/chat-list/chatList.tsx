@@ -11,7 +11,7 @@ export function ChatList() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [chatList, setChatList] = useState([]);
   useEffect(()=>{
-    fetch('https://localhost:3001/mychats', {
+    fetch('https://89.169.174.180:3001/mychats', {
       method: 'GET',
       credentials: 'include',
     }).then(response => response.json()).then((data) => {
@@ -32,7 +32,7 @@ export function ChatList() {
         <UploadPopup
           open={isPopupOpen}
           onClose={() => setIsPopupOpen(false)}
-          uploadAdress={'https://localhost:3001/upload'}
+          uploadAdress={'https://89.169.174.180:3001/upload'}
         />
         <NavBar/>
       </VerticalContainer>

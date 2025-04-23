@@ -13,7 +13,7 @@ export function UserList() {
   const [answers, setAnswers] = useState({});
   const [userList, setUserList] = useState()
   useEffect(()=>{
-    fetch('https://localhost:3001/users/all', {
+    fetch('https://89.169.174.180:3001/users/all', {
       method: 'GET',
       credentials: 'include',
     }).then((res)=>{return  res.json()}).then(data => {
@@ -43,7 +43,7 @@ export function UserList() {
               }}>
                 <div className={s.imageWrapper}>
                   <img
-                    src={leUser.avatar ? `https://localhost:3001/image/${leUser.avatar}` : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNKfj6RsyRZqO4nnWkPFrYMmgrzDmyG31pFQ&s'}
+                    src={leUser.avatar ? `https://89.169.174.180:3001/image/${leUser.avatar}` : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNKfj6RsyRZqO4nnWkPFrYMmgrzDmyG31pFQ&s'}
                     alt="avatar" />
                 </div>
                 <div className={s.match}>94% Match</div>
@@ -91,7 +91,7 @@ export function UserList() {
               </Button>
               <Button onClick={() => {
                 console.log('Выбранные фильтры:', answers);
-                fetch('https://localhost:3001/users/filtered',{
+                fetch('https://89.169.174.180:3001/users/filtered',{
                   method: 'POST',
                   credentials: 'include',
                   headers: {

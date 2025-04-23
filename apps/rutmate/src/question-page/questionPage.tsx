@@ -70,7 +70,7 @@ export function QuestionPage() {
         {switcher && <><img src={'../../public/images/logo.svg'} /><Question question={questions[currentQuestion]} />
           <Button onClick={()=>{
             if(questions[currentQuestion].name=='smoke'&&mode=='reg') {
-              fetch("https://localhost:3001/register", {
+              fetch("https://89.169.174.180:3001/register", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json"
@@ -85,7 +85,7 @@ export function QuestionPage() {
                 .catch(error => console.error("Error:", error));
             }
             if(questions[currentQuestion].name=='smoke'&&mode=='edit') {
-              fetch("https://localhost:3001/editquestions", {
+              fetch("https://89.169.174.180:3001/editquestions", {
                 method: "POST",
                 credentials: 'include',
                 headers: {

@@ -6,6 +6,7 @@ import Typo from '../typo/typo';
 import { useContext, useState } from 'react';
 import { UserContext } from '../app/app';
 import { useNavigate } from 'react-router';
+import NavBar from '../nav-bar/navBar';
 export function Settings() {
   const navigate = useNavigate();
   const  user  = useContext(UserContext);
@@ -14,13 +15,13 @@ export function Settings() {
   const handleAction = () => {
     console.log(curentAction)
     if (curentAction === 'logout') {
-      fetch("https://localhost:3001/logout", {
+      fetch("https://89.169.174.180:3001/logout", {
         method: "POST",
         credentials: "include",
       }).then(()=>{navigate("/sign-in")})
     }
     if (curentAction === 'kys') {
-      fetch("https://localhost:3001/kys", {
+      fetch("https://89.169.174.180:3001/kys", {
         method: "POST",
         credentials: "include",
       }).then(()=>{navigate("/sign-up")})
@@ -59,7 +60,7 @@ export function Settings() {
             </div>
           </div>
         </div>}
-
+        <NavBar/>
       </VerticalContainer>
     </Substrate>
   );

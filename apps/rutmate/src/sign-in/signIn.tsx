@@ -25,7 +25,7 @@ export function SignIn() {
           width={325}
           height={58}
           onClick={()=>{
-          fetch("https://localhost:3001/login", {
+          fetch("https://89.169.174.180:3001/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -37,7 +37,7 @@ export function SignIn() {
             }),
           }).then((response: Response) => {
             if (response.ok) {
-              fetch("https://localhost:3001/me", {
+              fetch("https://89.169.174.180:3001/me", {
                 method: "GET",
                 credentials: "include", // и тут тоже!
               })

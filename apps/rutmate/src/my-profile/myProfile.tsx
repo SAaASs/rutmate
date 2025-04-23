@@ -19,7 +19,7 @@ export function MyProfile() {
         <Typo marginBottom={20} marginTop={25} weight={700} size={24} color={"#000000"}>Мой профиль</Typo>
         <div className={s.myProfile}>
           <div className={s.myProfile__head}>
-            <CircleAvatar width={113} height={113} setIsPopupOpen={setIsPopupOpen} src={`https://localhost:3001/image/${user.currentUser.avatar}`}></CircleAvatar>
+            <CircleAvatar width={113} height={113} setIsPopupOpen={setIsPopupOpen} src={`https://89.169.174.180:3001/image/${user.currentUser.avatar}`}></CircleAvatar>
             <Typo weight={600} size={24} color={'#000000'}>{user.currentUser.name}</Typo>
           </div>
           {
@@ -39,7 +39,7 @@ export function MyProfile() {
         <UploadPopup
           open={isPopupOpen}
           onClose={() => setIsPopupOpen(false)}
-          uploadAdress={'https://localhost:3001/upload'}
+          uploadAdress={'https://89.169.174.180:3001/upload'}
         />
         <NavBar/>
       </VerticalContainer>

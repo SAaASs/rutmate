@@ -11,7 +11,7 @@ import { useNavigate, useParams } from 'react-router';
 import { useContext, useRef } from 'react';
 import { UserContext } from '../app/app';
 import Input from '../input/input';
-const socket = io('https://localhost:3001', { withCredentials: true });
+const socket = io('https://89.169.174.180:3001', { withCredentials: true });
 export function Chat() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const user = useContext(UserContext);
@@ -36,11 +36,11 @@ export function Chat() {
   useEffect(()=>{
     if (!user.currentUser._id) return;
     Promise.all([
-      fetch(`https://localhost:3001/chat/${id}/messages?skip=${messages?.length}`, {
+      fetch(`https://89.169.174.180:3001/chat/${id}/messages?skip=${messages?.length}`, {
         method: 'GET',
         credentials: 'include',
       }),
-      fetch(`https://localhost:3001/chat/${id}/info`, {
+      fetch(`https://89.169.174.180:3001/chat/${id}/info`, {
         method: 'GET',
         credentials: 'include',
       })
@@ -58,7 +58,7 @@ export function Chat() {
           companionId = chatData.chat.members.find(
             memberId => memberId.toString() !== user.currentUser._id.toString()
           );
-          fetch(`https://localhost:3001/user/${companionId}`, {
+          fetch(`https://89.169.174.180:3001/user/${companionId}`, {
             method: "GET",
             credentials: "include",
           })
@@ -114,13 +114,13 @@ export function Chat() {
             <Button onClick={()=>{navigate('/chats')}} backgroundColor={'transparent'} iconOnly><img
               src={'../../public/images/weui_arrow-filled.svg'} /></Button>
             <CircleAvatar width={71} height={71} setIsPopupOpen={setIsPopupOpen}
-                          src={`https://localhost:3001/image/${chatInfo.pic}`} />
+                          src={`https://89.169.174.180:3001/image/${chatInfo.pic}`} />
             <Typo weight={400} size={24} color={'#000000'}>{chat?.title ? chat.title : chatInfo.name}</Typo>
             <Button backgroundColor={'transparent'} iconOnly><img src={'../../public/images/hugeicons_complaint.svg'} /></Button>
           </div>
           <div onScroll={(e)=>{
             if(e.target.scrollTop===0) {
-              fetch(`https://localhost:3001/chat/${id}/messages?skip=${messages?.length}`, {
+              fetch(`https://89.169.174.180:3001/chat/${id}/messages?skip=${messages?.length}`, {
                 method: 'GET',
                 credentials: 'include',
               }).then((r)=>{return r.json()}).then((data)=>{
@@ -161,7 +161,7 @@ export function Chat() {
       <UploadPopup
         open={isPopupOpen}
         onClose={() => setIsPopupOpen(false)}
-        uploadAdress={'https://localhost:3001/upload'}
+        uploadAdress={'https://89.169.174.180:3001/upload'}
       />
     </Substrate>
   );

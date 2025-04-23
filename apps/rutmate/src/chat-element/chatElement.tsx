@@ -21,7 +21,7 @@ export function ChatElement({chat, setIsPopupOpen}: ChatElementProps) {
   );
   useEffect(()=>{
     if (!user.currentUser._id) return;
-    fetch(`https://localhost:3001/getlastmessage?chatId=${chat._id}`,
+    fetch(`https://89.169.174.180:3001/getlastmessage?chatId=${chat._id}`,
       {
         method: 'GET',
         credentials: 'include',
@@ -34,7 +34,7 @@ export function ChatElement({chat, setIsPopupOpen}: ChatElementProps) {
       companionId = chat.members.find(
         memberId => memberId.toString() !== user.currentUser._id.toString()
       );
-      fetch(`https://localhost:3001/user/${companionId}`, {
+      fetch(`https://89.169.174.180:3001/user/${companionId}`, {
         method: "GET",
         credentials: "include", // и тут тоже!
       })
@@ -54,7 +54,7 @@ export function ChatElement({chat, setIsPopupOpen}: ChatElementProps) {
   return (
     <div className={s.chatElementList}>
       <div onClick={()=>{navigate(`/chat/${chat._id}`)}} className={s.chatElement}>
-        <CircleAvatar width={56} height={56} setIsPopupOpen={setIsPopupOpen} src={chat.avatar ? chat.avatar : `https://localhost:3001/image/${chatInfo.pic}`}></CircleAvatar>
+        <CircleAvatar width={56} height={56} setIsPopupOpen={setIsPopupOpen} src={chat.avatar ? chat.avatar : `https://89.169.174.180:3001/image/${chatInfo.pic}`}></CircleAvatar>
         <div className={s.chatElement__textWrap}>
           <Typo weight={600} size={18} color={'#000000'}>{chat.title ? chat.title : chatInfo.name}</Typo>
           {chatInfo.message.content&&<Typo textAlign={'start'} weight={400} size={14} color={'#000000'}>{chatInfo.message.content.text}</Typo>}
